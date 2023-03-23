@@ -1,17 +1,34 @@
+// AQUI DEFINE QUE OS BOTÔES DE LOGIN E "ESQUECI A SENHA" FIQUEM ATIVOS APENAS SE TIVER UM EMAIL E SENHA VALIDOS NOS CAMPOS DE INPUT
 function validateFields() {
+  const emailValid = isEmailValid()
+  document.getElementById('recover-password-button').disabled = !emailValid
+
+  const passwordValid = isPasswordValid()
+  document.getElementById('login-button').disabled =
+    !emailValid || !passwordValid
+}
+
+function isEmailValid() {
   const email = document.getElementById('email').value
   if (!email) {
-    document.getElementById('recover-password-button').disabled = true
-  } else if (validateEmail(email)) {
-    document.getElementById('recover-password-button').disabled = false
-  } else {
-    document.getElementById('recover-password-button').disabled = true
+    return false
   }
+  return validateEmail(email)
+}
+
+function isPasswordValid() {
+  const password = document.getElementById('password').value
+  if (!password) {
+    return false
+  }
+  return true
 }
 
 function validateEmail(email) {
   return /\S+@\S+\.\S+/.test(email)
 }
+
+// AQUI ADICIONA INTERAÇÃO AO BOTÃO ONDE ESCONDE OU MOSTRA A SENHA PARA O USUÁRIO
 
 let containers = document.querySelectorAll('.input-box')
 let inputs = document.querySelectorAll('.senha')
@@ -30,6 +47,7 @@ for (let i = 0; i < icons.length; i++) {
   })
 }
 
+// AQUI DEFINE QUE O BOTÃO "VOLTAR" VOLTE A PAGINA ANTERIOR EM QUE O USUARIO ESTAVA
 function goBack() {
   window.history.back()
 }

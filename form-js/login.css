@@ -166,6 +166,10 @@ button:active {
   box-shadow: 0 0 1rem var(--hover-color);
 }
 
+button[disabled] {
+  opacity: 0.4;
+}
+
 .login:hover {
   background-color: var(--hover-color);
   box-shadow: 0 0 1rem var(--hover-color);
