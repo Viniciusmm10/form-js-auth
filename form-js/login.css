@@ -104,9 +104,23 @@ h2 {
 .input-box .toggle-icon {
   position: absolute;
   right: 8px;
+  bottom: 12px;
   color: var(--text-color);
   line-height: 20px;
   cursor: pointer;
+}
+
+.error {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  left: 0;
+  font-size: 0.9rem;
+  color: white;
+  background-color: red;
+  opacity: 0.8;
+  border-radius: 8px;
+  display: none;
 }
 
 .lembrar-me {
